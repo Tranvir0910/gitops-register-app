@@ -6,15 +6,15 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: register-app
+      app: register-app-pipeline
   template:
     metadata:
       labels:
-        app: register-app
+        app: register-app-pipeline
     spec:
       containers:
-        - name: register-app
-          image: ashfaque9x/register-app-pipeline:1.0.0-9
+        - name: register-app-pipeline
+          image: tranvix0910/register-app-pipeline:1.0.0-26
           resources:
             limits:
               memory: "256Mi"
