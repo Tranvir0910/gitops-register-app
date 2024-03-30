@@ -13,7 +13,7 @@ pipeline {
 
         stage("Checkout from SCM") {
                steps {
-                   git branch: 'main', credentialsId: 'dockerhub-token', url: 'https://github.com/Tranvir0910/gitops-register-app'
+                   git branch: 'main', credentialsId: 'ci-register-app', url: 'https://github.com/Tranvir0910/gitops-register-app'
                }
         }
 
@@ -30,12 +30,12 @@ pipeline {
         stage("Push the changed deployment file to Git") {
             steps {
                 sh """
-                   git config --global user.name "Ashfaque-9x"
-                   git config --global user.email "ashfaque.s510@gmail.com"
+                   git config --global user.name "Tranvix0910"
+                   git config --global user.email "vitran63666@gmail.com"
                    git add deployment.yaml
                    git commit -m "Updated Deployment Manifest"
                 """
-                withCredentials([gitUsernamePassword(credentialsId: 'dockerhub-token', gitToolName: 'Default')]) {
+                withCredentials([gitUsernamePassword(credentialsId: 'ci-register-app', gitToolName: 'Default')]) {
                   sh "git push https://github.com/Tranvir0910/gitops-register-app main"
                 }
             }
