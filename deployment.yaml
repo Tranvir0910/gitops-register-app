@@ -6,11 +6,11 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: register-app-pipeline
+      app: register-app-pipeline:1.0.0-26
   template:
     metadata:
       labels:
-        app: register-app-pipeline
+        app: register-app-pipeline:1.0.0-26
     spec:
       containers:
         - name: register-app-pipeline:1.0.0-26
